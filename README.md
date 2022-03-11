@@ -1,4 +1,4 @@
-<h1 align="center">Angular - Inventario Vacuans</h1>
+<h1 align="center">Angular - Inventario Vacunas</h1>
 
 
 <p align="center">
