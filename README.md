@@ -1,7 +1,7 @@
 <h1 align="center">Angular - Inventario Vacuans</h1>
 
 <p align="center">
-  <img src="aio/src/assets/images/logos/angular/angular.png" alt="angular-logo" width="120px" height="120px"/>
+  <img url='https://www.google.com/url?sa=i&url=https%3A%2F%2Fdocs.angular.lat%2Fpresskit&psig=AOvVaw03gQugkzOA_GilwBMeKVGb&ust=1647123221564000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJDH36aKv_YCFQAAAAAdAAAAABAK'/>
 </p>
 
 <p align="center">
