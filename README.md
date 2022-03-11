@@ -48,7 +48,7 @@ git clone http://github.com/pedroarauz1988/inventarioVacunasReto.git
 Levantar la aplicacion:
 
 ```
-cd [PROJECT NAME]
+cd inventario-vacunacion
 ng serve
 ```
 
