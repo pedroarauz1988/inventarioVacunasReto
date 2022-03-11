@@ -1,0 +1,98 @@
+<body>
+    <div class="form-body">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <h3>EMPLEADO</h3>
+                        <form class="requires-validation" [formGroup]="employeeForm">
+    
+                            <div class="col-md-12">
+                                <input matInput class="form-control" type="number"type="number" onwheel="this.blur()" maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" name="identification" placeholder="Cedula" required formControlName="identification" [(ngModel)]="employeeForm.value.identification">
+                                <mat-error style="color: red;" *ngIf="identification?.invalid && (identification?.dirty || identification?.touched)">
+                                    Cedula es requerida!
+                              </mat-error>   
+                            </div>
+                            <div class="col-md-12">
+                               <input matInput class="form-control" type="text" name="name" onkeydown="return /[a-z, ]/i.test(event.key)" oninvalid="setCustomValidity('Please enter on alphabets only. ')" placeholder="Nombres" required formControlName="name" [(ngModel)]="employeeForm.value.name">
+                               <mat-error style="color: red;" *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+                                Nombre es requerido!
+                          </mat-error> 
+                            </div>
+                            <div class="col-md-12">
+                                <input matInput class="form-control" type="text" name="lastName" onkeydown="return /[a-z, ]/i.test(event.key)" placeholder="Apellidos" required formControlName="lastName" [(ngModel)]="employeeForm.value.lastName">
+                                <mat-error style="color: red;" *ngIf="lastName?.invalid && (lastName?.dirty || lastName?.touched)">
+                                    Apellido es requerido!
+                              </mat-error>
+                             </div>
+                             <div class="col-md-12">
+                                <input matInput class="form-control" type="email" name="email" placeholder="abc@gmail.com" required formControlName="email" [(ngModel)]="employeeForm.value.email">
+                                <mat-error style="color: red;" *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+                                       Correo es requerido!
+                                 </mat-error>
+                             </div>
+                             <div class="col-md-12">
+                                <input matInput class="form-control" type="text" name="movil"  placeholder="Celular" required formControlName="movil" [(ngModel)]="employeeForm.value.movil">
+                                <mat-error style="color: red;" *ngIf="movil?.invalid && (movil?.dirty || movil?.touched)">
+                                    Celular es requerido!
+                              </mat-error>
+                             </div>
+                             <div class="col-md-12 mt-3">
+                                <input matInput class="form-control" type="date" name="birthDate" placeholder="Fecha de Nacimiento" required formControlName="birthDate" [(ngModel)]="employeeForm.value.birthDate">
+                                <mat-error style="color: red;" *ngIf="birthDate?.invalid && (birthDate?.dirty || birthDate?.touched)">
+                                    Fecha de Cumpleños es requerida!
+                              </mat-error>
+                             </div>
+                             <div class="col-md-12">
+                                <input matInput class="form-control" type="text" name="address" placeholder="Dirección" required formControlName="address" [(ngModel)]="employeeForm.value.address">
+                                <mat-error style="color: red;" *ngIf="address?.invalid && (address?.dirty || address?.touched)">
+                                    Dirección es requerido!
+                              </mat-error>
+                             </div>
+                           <div class="col-md-12 mt-3">
+                            <label class="mb-3 mr-1" for="gender">Estado de Vacunación: </label>
+    
+                            <input type="radio" class="btn-check" name="vaccinationStatus" id="vaccinated" value="vacunado" autocomplete="off" required formControlName="vaccinationStatus" [(ngModel)]="employeeForm.value.vaccinationStatus">
+                            <label class="btn btn-sm btn-outline-secondary" for="vaccinated">Vacunado</label>
+    
+                            <input type="radio" class="btn-check" name="vaccinationStatus" id="notVaccinated" value="noVacunado" autocomplete="off" required formControlName="vaccinationStatus" [(ngModel)]="employeeForm.value.vaccinationStatus">
+                            <label class="btn btn-sm btn-outline-secondary" for="notVaccinated">No Vacunado</label>
+                           </div>
+    
+                           <div class="col-md-12 mt-3" *ngIf="employeeForm.value.vaccinationStatus === 'vacunado'">
+                            
+                            <div class="col-md-12 mt-3">
+                                <label class="mb-3 mr-1" for="gender">Tipo de Vacuna: </label>
+        
+                                <input type="radio" class="btn-check" name="vaccineName" id="pfizer" value="pfizer" autocomplete="off" required formControlName="vaccineName" [(ngModel)]="employeeForm.value.vaccineName">
+                                <label class="btn btn-sm btn-outline-secondary" for="pfizer">Pfizer</label>
+        
+                                <input type="radio" class="btn-check" name="vaccineName" id="Sputnik" value="Sputnik" autocomplete="off" required formControlName="vaccineName" [(ngModel)]="employeeForm.value.vaccineName">
+                                <label class="btn btn-sm btn-outline-secondary" for="Sputnik">Sputnik</label>
+
+                                <input type="radio" class="btn-check" name="vaccineName" id="AstraZeneca" value="AstraZeneca" autocomplete="off" required formControlName="vaccineName" [(ngModel)]="employeeForm.value.vaccineName">
+                                <label class="btn btn-sm btn-outline-secondary" for="AstraZeneca">AstraZeneca</label>
+
+                                <input type="radio" class="btn-check" name="vaccineName" id="Jhonson&Jhonson" value="Jhonson&Jhonson" autocomplete="off" required formControlName="vaccineName" [(ngModel)]="employeeForm.value.vaccineName">
+                                <label class="btn btn-sm btn-outline-secondary" for="Jhonson&Jhonson">Jhonson&Jhonson</label>
+                               </div>
+                            <div class="col-md-12 mt-3">
+                                <input matInput class="form-control" type="date" name="vaccinationDate" placeholder="Fecha de Vacunacion" required formControlName="vaccinationDate" [(ngModel)]="employeeForm.value.vaccinationDate">
+                            </div>
+                            <div class="col-md-12">
+                                <input matInput class="form-control" type="text" name="doses" placeholder="Número de Dosis" required formControlName="doses" [(ngModel)]="employeeForm.value.doses">
+                            </div>
+                           </div>
+    
+                            <div class="form-button mt-3">
+                                <button id="submit" (click)="save()" type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+    
+    

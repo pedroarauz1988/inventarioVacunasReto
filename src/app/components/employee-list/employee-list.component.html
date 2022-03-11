@@ -1,0 +1,105 @@
+<body>
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder">
+            <div class="form-content">
+                <div class="form-items">
+                    
+                    <div class="form-button mt-3 px-1 row">
+                      <h3>EMPLEADOS</h3>
+                      <button id="new" (click)="newEmployee()" type="submit" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Registrar nuevo empleado">
+                        <i class="bi bi-plus"></i>
+                      </button>
+                  </div>
+                  <div class="form-button mt-3 px-1 row">
+                  <form [formGroup]="filterForm">
+                   <div class="col-md-12 mt-3">
+                    <label class="mb-3 mr-1" for="gender">Estado de Vacunación: </label>
+                    <input type="radio" class="btn-check" name="vaccinationStatus" id="vaccinatedF" value="vacunado" autocomplete="off" required formControlName="vaccinationStatus" [(ngModel)]="filterForm.value.vaccinationStatus">
+                    <label class="btn btn-sm btn-outline-secondary" for="vaccinatedF">Vacunado</label>
+
+                    <input type="radio" class="btn-check" name="vaccinationStatus" id="notVaccinatedF" value="noVacunado" autocomplete="off" required formControlName="vaccinationStatus" [(ngModel)]="filterForm.value.vaccinationStatus">
+                    <label class="btn btn-sm btn-outline-secondary" for="notVaccinatedF">No Vacunado</label>
+                   </div>
+                   <div class="col-md-12 mt-3">
+                    <label class="mb-3 mr-1" for="gender">Tipo de Vacuna: </label>
+
+                    <input type="radio" class="btn-check" name="vaccineName" id="pfizerF" value="pfizer" autocomplete="off" required formControlName="vaccineName" [(ngModel)]="filterForm.value.vaccineName">
+                    <label class="btn btn-sm btn-outline-secondary" for="pfizerF">Pfizer</label>
+
+                    <input type="radio" class="btn-check" name="vaccineName" id="SputnikF" value="Sputnik" autocomplete="off" required formControlName="vaccineName" [(ngModel)]="filterForm.value.vaccineName">
+                    <label class="btn btn-sm btn-outline-secondary" for="SputnikF">Sputnik</label>
+
+                    <input type="radio" class="btn-check" name="vaccineName" id="AstraZenecaF" value="AstraZeneca" autocomplete="off" required formControlName="vaccineName" [(ngModel)]="filterForm.value.vaccineName">
+                    <label class="btn btn-sm btn-outline-secondary" for="AstraZenecaF">AstraZeneca</label>
+
+                    <input type="radio" class="btn-check" name="vaccineName" id="Jhonson&JhonsonF" value="Jhonson&Jhonson" autocomplete="off" required formControlName="vaccineName" [(ngModel)]="filterForm.value.vaccineName">
+                    <label class="btn btn-sm btn-outline-secondary" for="Jhonson&JhonsonF">Jhonson&Jhonson</label>
+                   </div>
+                   <button id="filter" (click)="filter()" type="submit" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Filtar">
+                    <span>Filtrar</span>
+                  </button>
+                </form>
+              </div>
+                  
+              
+                    <div class="mat-elevation-z8">
+                        <table class="table" mat-table [dataSource]="employees">
+                      
+                          <!-- Position Column -->
+                          <ng-container class="line" matColumnDef="identification">
+                            <th mat-header-cell *matHeaderCellDef style="width: 20%;"> Identificación </th>
+                            <td  *matCellDef="let element"> {{element.identification}} </td>
+                          </ng-container>
+                      
+                          <!-- Name Column -->
+                          <ng-container class="line" matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef style="width: 20%;"> Nombres </th>
+                            <td  *matCellDef="let element"> {{element.name}} </td>
+                          </ng-container>
+                      
+                          <!-- Weight Column -->
+                          <ng-container matColumnDef="lastName">
+                            <th mat-header-cell *matHeaderCellDef style="width: 20%;"> Apellidos </th>
+                            <td *matCellDef="let element"> {{element.lastName}} </td>
+                          </ng-container>
+                      
+                          <!-- Symbol Column -->
+                          <ng-container matColumnDef="email">
+                            <th mat-header-cell *matHeaderCellDef style="width: 20%;"> Correo </th>
+                            <td  *matCellDef="let element"> {{element.email}} </td>
+                          </ng-container>
+
+                          <ng-container matColumnDef="action">
+                            <th mat-header-cell *matHeaderCellDef style="width: 20%;"> Acciones </th>
+                            <td class="row"  *matCellDef="let element">
+                              <div class="form-button mt-3 px-1">
+                                <button id="edit" (click)="registerEmployee(element)" type="submit" class="btn btn-warning" data-toggle="tooltip" data-placement="top" title="Dar de alta">
+                                  <i class="bi bi-check"></i>
+                                </button>
+                            </div>
+                              <div class="form-button mt-3 px-1">
+                                <button id="delete" (click)="deleteEmployee(element)" type="submit" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Eliminar">
+                                <i class="bi bi-trash"></i>
+                              </button>
+                            </div>
+                              <div class="form-button mt-3 px-1">
+                                <button id="edit" (click)="editEmployee(element)" type="submit" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Editar">
+                                  <i class="bi bi-pencil"></i>
+                                </button>
+                            </div>
+                             </td>
+                          </ng-container>
+                      
+                          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                      
+                      </div>
+                      
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
