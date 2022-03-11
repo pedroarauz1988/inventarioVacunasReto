@@ -39,6 +39,12 @@ Instalar de manera global el Angular CLI:
 npm install -g @angular/cli
 ```
 
+Abrir la carpeta donde se encuentra el proyecto y ejecutar el siguiente comando:
+
+```
+npm i @angular-devkit/build-angular
+```
+
 Clonar Projecto:
 
 ```
@@ -56,7 +62,9 @@ Angular is cross-platform, fast, scalable, has incredible tooling, and is loved 
 
 ## Datos para ingresar al sistema
 
+```
 Usuario Administrador: admin
 Contraseña: admin
+```
 
 
